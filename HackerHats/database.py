@@ -2,6 +2,7 @@ from collections import defaultdict
 import json
 import os
 import sqlite3
+import uuid
 
 from flask import g, session
 
@@ -10,7 +11,7 @@ from HackerHats import app
 
 def add_response(case_id, response, user_id=None):
     if user_id == None:
-        user_id = session["uuid"];
+        user_id = get_uuid();
     db = get_db()
     db.execute('replace into responses (user_id, case_id, response) values (?, ?, ?)',
                  (user_id, case_id, response))
@@ -26,7 +27,7 @@ def get_all_responses():
 
 def get_user_response(case_id, user_id=None):
     if user_id == None:
-        user_id = session["uuid"];
+        user_id = get_uuid();
     res = query_db("select response from responses where case_id = ? and user_id = ?", (case_id, user_id), True);
     if res != None:
         return res["response"]
@@ -45,6 +46,15 @@ def get_case(case_id):
 def get_case_ids():
     case_ids = query_db('select id from cases order by id')
     return [case_id['id'] for case_id in case_ids]
+
+def get_uuid():
+    if 'uuid' in session:
+        return session['uuid']
+    else:
+        session.permanent = True
+        u = str(uuid.uuid4())
+        session['uuid'] = u
+        return u
 
 # Database exceptions
 

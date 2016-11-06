@@ -1,5 +1,4 @@
 import os
-import uuid
 
 from flask import Flask, session, request
 import flask
@@ -73,9 +72,3 @@ def case(case_id):
         return flask.render_template('case.jinja2', **params)
     else:
         return "Case does not exist.", 404
-
-@app.before_request
-def check_uuid():
-    if session.new:
-        session.permanent = True
-        session['uuid'] = str(uuid.uuid4())
