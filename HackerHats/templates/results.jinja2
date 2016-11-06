@@ -1,0 +1,27 @@
+{% extends "base.jinja2" %}
+
+{% block head %}
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js" 
+		integrity="sha256-matqc7CRptNWuATphiL4aVwn2YFBle16YV/AI5bYc70=" 
+		crossorigin="anonymous"></script>
+	<script src="{{ url_for('static', filename='js/results.js') }}"></script>
+	<script>
+		window.onload = function() {
+			loadChart({{ case['id'] }}, {{ (responses or [])|tojson|safe }});
+		};
+	</script>
+{% endblock %}
+
+{% block body %}
+    <div class="results-container" id="results-container">
+    	<div class="results-chart" id="results-chart">
+    		<canvas class="results-chart-canvas" id="results-chart-canvas"></canvas>
+    	</div>
+    	<div class="results-description" id="results-description">
+    		<h3>{{ case['title'] }}</h3>
+    		<br>
+    		<p>{{ case['details'] }}</p>
+    	</div>
+    </div>
+{% endblock %}

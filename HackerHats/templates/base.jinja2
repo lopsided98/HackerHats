@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<script
+	src="https://code.jquery.com/jquery-3.1.1.js"
+	integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+	crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title>Hacker Hats</title>
+{% block head %}{% endblock %}
+</head>
+<body>
+<div class="header-container" >
+	<h1>Hacker Hats</h1>
+	<h3>by Ben Wolsieffer<h3>
+</div>
+<div class="content-container" >
+	{% block body %}{% endblock %}
+</div>
+<div class="navigation-container" >
+	{% if prev_page is defined %}
+		<a class="navigation-button" id="prev-button" href="{{prev_page}}">Prev</a>
+	{% endif %}
+	{% if next_page is defined %}
+		<a class="navigation-button" id="next-button" href="{{next_page}}">Next</a>
+	{% endif %}
+</div>
+</body>
+</html>

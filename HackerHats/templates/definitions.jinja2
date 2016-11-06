@@ -1,0 +1,31 @@
+{% extends "base.jinja2" %}
+
+{% block body %}
+	{% set how_to_geek_url = 'http://www.howtogeek.com/157460/hacker-hat-colors-explained-black-hats-white-hats-and-gray-hats/' %}
+	{% set wired_url = 'https://www.wired.com/2016/04/hacker-lexicon-white-hat-gray-hat-black-hat-hackers/' %}
+
+	<div class="hat-box" id="white-hat-box" >
+		<img class="hat-image" src="/static/img/white-hat.svg" />
+		<div class="hat-definition" >
+			<q cite="{{ how_to_geek_url }}" >use their abilities for good, ethical, and legal purposes rather than bad, unethical, and criminal purposes</q>
+			<br>
+			<q cite="{{ wired_url }}" >White hats disclose vulnerabilities to software vendors so they can be fixed</q>
+		</div>
+	</div>
+	<div class="hat-box" id="gray-hat-box" >
+		<img class="hat-image" src="/static/img/gray-hat.svg" />
+		<div class="hat-definition" >
+			<q cite="{{ how_to_geek_url }}" >doesn’t work for their own personal gain or to cause carnage, but they may technically commit crimes and do arguably unethical things</q>
+			<br>
+			<q cite="{{ wired_url }}" >Gray hats sell or disclose their zero-day vulnerabilities not to criminals, but to governments—law enforcement agencies</q>
+		</div>
+	</div>
+	<div class="hat-box" id="black-hat-box" >
+		<img class="hat-image" src="/static/img/black-hat.svg" />
+		<div class="hat-definition" >
+			<q cite="{{ how_to_geek_url }}" >violate computer security for personal gain ... or for pure maliciousness</q>
+			<br>
+			<q cite="{{ wired_url }}" >gray hats disclose or sell them to governments to be used for hacks against adversaries and criminal suspects</q>
+		</div>
+	</div>
+{% endblock %}

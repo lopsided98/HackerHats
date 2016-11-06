@@ -1,0 +1,7 @@
+__pycache__
+*.pyc
+.metadata/
+.settings/
+.project
+.pydevproject
+HackerHats/db/data.db

@@ -1,0 +1,79 @@
+html {
+	background-color: #E0E0E0;
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	width: 70%;
+	min-height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #91969e;
+	padding: 20px;
+	margin-top: 0px;
+}
+
+.navigation-container {
+	padding: 20px;
+}
+
+.navigation-button#prev-button {
+	float: left;
+}
+
+.navigation-button#next-button {
+	float: right;
+}
+
+.content-container {
+	
+}
+
+.hat-image {
+	width: 200px;
+	max-width: 20%;
+	display: inline-block;
+}
+
+.hat-definition {
+	display: inline-block;
+	padding-left: 20px;
+}
+
+#response-form {
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#response-form input[type="radio"] {
+	display: none;
+}
+
+#response-form input[type="radio"]+label {
+	display: block;
+	height: 50px;
+	background-color: #666666;
+	border: 1px solid black;
+	border-radius: 12px;
+	text-align: center;
+	/* Vertically align text */
+	line-height: 50px;
+	vertical-align: middle;
+	text-align: center;
+	border-color: black;
+	margin: 10px;
+}
+
+#response-form input[type="radio"]:checked+label {
+	border-color: white;
+}
+
+.results-chart {
+	width: 400px;
+}
+.results-container * {
+	display: inline-block;
+}

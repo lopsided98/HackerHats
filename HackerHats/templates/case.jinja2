@@ -1,0 +1,20 @@
+{% extends "base.jinja2" %}
+
+{% block head %}
+	<script src="{{ url_for('static', filename='js/case.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="case-body">
+		{{ case.body }}
+    </div>
+    <br>
+    <form id="response-form">
+    	<input type="hidden" name="case_id" value="{{ case.id }}" />
+    	{% for text, color in [('White Hat', 'white'), ('Gray Hat', 'gray'), ('Black Hat', 'black')] %}
+		<input type="radio" name="response" id="response-radio-{{ color }}" value="{{ color }}" 
+			{% if default_response == color %} checked {% endif %} />
+		<label for="response-radio-{{ color }}">{{ text }}</label>
+		{% endfor %}
+    </form>
+{% endblock %}

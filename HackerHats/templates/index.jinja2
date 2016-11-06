@@ -1,0 +1,10 @@
+{% extends "base.jinja2" %}
+{% block body %}
+	<form action="responses/submit" method="post">
+		<input type="text" name="case_id" />
+		<br>
+		<input type="text" name="response" />
+		<br>
+		<input type="submit" />
+	</form>
+{% endblock %}
