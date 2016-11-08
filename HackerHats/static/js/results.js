@@ -1,4 +1,5 @@
 Chart.defaults.global.legend.display = false;
+Chart.defaults.global.maintainAspectRatio = false;
 
 function loadChart(case_id, responses) {
 	// Canvas

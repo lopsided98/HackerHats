@@ -17,6 +17,26 @@ def root():
 def definitions():
     return flask.render_template('definitions.jinja2',
                                  next_page="/case/%i" % database.get_case_ids()[0])
+    
+@app.route('/case/<int:case_id>')
+def case(case_id):
+    case = database.get_case(case_id)
+    if case != None:
+        case_ids, i = case_id_index(case_id)
+        params = {}
+        params['next_page'] = '/results/%i' % case_id
+        if (i - 1) >= 0:
+            params['prev_page'] = '/results/%i' % case_ids[i - 1]
+        else:
+            params['prev_page'] = '/definitions'
+        params['case'] = dict(case)
+        default_response = database.get_user_response(case_id)
+        if default_response != None:
+            params['default_response'] = default_response
+        return flask.render_template('case.jinja2', **params)
+    else:
+        return "Case does not exist.", 404
+
 @app.route('/results/<int:case_id>')
 def results(case_id):
     case = database.get_case(case_id)
@@ -55,20 +75,3 @@ def case_id_index(case_id):
     if i != len(case_ids) and case_ids[i] == case_id:
         return case_ids, i
     raise ValueError
-
-@app.route('/case/<int:case_id>')
-def case(case_id):
-    case = database.get_case(case_id)
-    if case != None:
-        case_ids, i = case_id_index(case_id)
-        params = {}
-        params['next_page'] = '/results/%i' % case_id
-        if (i - 1) >= 0:
-            params['prev_page'] = '/results/%i' % case_ids[i - 1]
-        params['case'] = dict(case)
-        default_response = database.get_user_response(case_id)
-        if default_response != None:
-            params['default_response'] = default_response
-        return flask.render_template('case.jinja2', **params)
-    else:
-        return "Case does not exist.", 404
