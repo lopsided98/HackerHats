@@ -14,7 +14,9 @@
     	{% for text, color in [('White Hat', 'white'), ('Gray Hat', 'gray'), ('Black Hat', 'black')] %}
 		<input type="radio" name="response" id="response-radio-{{ color }}" value="{{ color }}" 
 			{% if default_response == color %} checked {% endif %} />
-		<label for="response-radio-{{ color }}">{{ text }}</label>
+		<label class="response-label" for="response-radio-{{ color }}">
+			<div>{{ text }}</div>
+		</label>
 		{% endfor %}
     </form>
 {% endblock %}
