@@ -1,31 +1,45 @@
 {% extends "base.jinja2" %}
 
+{% macro cite(text, url) %}
+	<cite>(<a href="{{ url }}">{{ text }}</a>)</cite>
+{% endmacro %}
+
 {% block body %}
 	{% set how_to_geek_url = 'http://www.howtogeek.com/157460/hacker-hat-colors-explained-black-hats-white-hats-and-gray-hats/' %}
 	{% set wired_url = 'https://www.wired.com/2016/04/hacker-lexicon-white-hat-gray-hat-black-hat-hackers/' %}
 
+	<h3>Hackers are often categorized into one of three groups...</h3>
 	<div class="hat-box" id="white-hat-box" >
-		<img class="hat-image" src="/static/img/white-hat.svg" />
+		<img class="hat-image" alt="White Hat" src="/static/img/white-hat.svg" />
 		<div class="hat-definition" >
+			<h3>White Hat</h3>
 			<q cite="{{ how_to_geek_url }}" >use their abilities for good, ethical, and legal purposes rather than bad, unethical, and criminal purposes</q>
+			{{ cite("Hoffman", how_to_geek_url) }}
 			<br>
 			<q cite="{{ wired_url }}" >White hats disclose vulnerabilities to software vendors so they can be fixed</q>
+			{{ cite("Zetter", wired_url) }}
 		</div>
 	</div>
 	<div class="hat-box" id="gray-hat-box" >
-		<img class="hat-image" src="/static/img/gray-hat.svg" />
+		<img alt="Gray Hat" class="hat-image" src="/static/img/gray-hat.svg" />
 		<div class="hat-definition" >
+			<h3>Gray Hat</h3>
 			<q cite="{{ how_to_geek_url }}" >doesn’t work for their own personal gain or to cause carnage, but they may technically commit crimes and do arguably unethical things</q>
+			{{ cite("Hoffman", how_to_geek_url) }}
 			<br>
 			<q cite="{{ wired_url }}" >Gray hats sell or disclose their zero-day vulnerabilities not to criminals, but to governments—law enforcement agencies</q>
+			{{ cite("Zetter", wired_url) }}
 		</div>
 	</div>
 	<div class="hat-box" id="black-hat-box" >
-		<img class="hat-image" src="/static/img/black-hat.svg" />
+		<img alt="Black Hat" class="hat-image" src="/static/img/black-hat.svg" />
 		<div class="hat-definition" >
+			<h3>Black Hat</h3>
 			<q cite="{{ how_to_geek_url }}" >violate computer security for personal gain ... or for pure maliciousness</q>
+			{{ cite("Hoffman", how_to_geek_url) }}
 			<br>
 			<q cite="{{ wired_url }}" >gray hats disclose or sell them to governments to be used for hacks against adversaries and criminal suspects</q>
+			{{ cite("Zetter", wired_url) }}
 		</div>
 	</div>
 {% endblock %}

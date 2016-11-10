@@ -22,6 +22,8 @@ body {
 
 .header-container * {
 	margin: 0px;
+	color: black;
+	text-decoration: none;
 }
 
 .header-container h4 {
@@ -47,15 +49,20 @@ body {
 	padding: 2px 20px;
 }
 
+.hat-box {
+	display: flex;
+	align-items: center;
+}
+
 .hat-image {
-	width: 200px;
-	max-width: 20%;
-	display: inline-block;
+	flex: 0 1 120px;
+	max-height: 120px;
+	max-width: 15%;
 }
 
 .hat-definition {
-	display: inline-block;
 	padding-left: 20px;
+	flex: 1;
 }
 
 #response-form {
