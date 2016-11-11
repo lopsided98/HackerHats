@@ -52,6 +52,12 @@ def results(case_id):
     else:
         return "Case does not exist.", 404
 
+@app.route('/words')
+def words():
+    cases = database.get_all_cases()
+    word_count = sum([len(case[s].split()) for s in ['body', 'title', 'details'] for case in cases])
+    return flask.render_template('words.jinja2', word_count=word_count)
+
 @app.route('/favicon.ico')
 def favicon():
     return send_static('img/favicon.ico', mimetype='image/vnd.microsoft.icon')
