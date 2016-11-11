@@ -16,7 +16,7 @@ def root():
 @app.route('/definitions')
 def definitions():
     return flask.render_template('definitions.jinja2',
-                                 next_page="/case/%i" % database.get_case_ids()[0])
+                                 next_page=flask.url_for('case', case_id=database.get_case_ids()[0]))
     
 @app.route('/case/<int:case_id>')
 def case(case_id):
@@ -24,9 +24,9 @@ def case(case_id):
     if case != None:
         case_ids, i = case_id_index(case_id)
         params = {}
-        params['next_page'] = '/results/%i' % case_id
+        params['next_page'] = flask.url_for('results', case_id=case_id)
         if (i - 1) >= 0:
-            params['prev_page'] = '/results/%i' % case_ids[i - 1]
+            params['prev_page'] = flask.url_for('results', case_id=case_ids[i - 1])
         else:
             params['prev_page'] = '/definitions'
         params['case'] = dict(case)
@@ -44,8 +44,8 @@ def results(case_id):
         case_ids, i = case_id_index(case_id)
         params = {}
         if (i + 1) < len(case_ids):
-            params['next_page'] = '/case/%i' % case_ids[i + 1]
-        params['prev_page'] = '/case/%i' % case_id
+            params['next_page'] = flask.url_for('case', case_id=case_ids[i + 1])
+        params['prev_page'] = flask.url_for('case', case_id=case_id)
         params['case'] = case
         params['responses'] = [dict(response) for response in database.get_responses(case_id)]
         return flask.render_template('results.jinja2', **params)
@@ -60,7 +60,7 @@ def words():
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_static('img/favicon.ico', mimetype='image/vnd.microsoft.icon')
+    return send_static('img/favicons/favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/<path:path>')
 def send_static(path, **options):
