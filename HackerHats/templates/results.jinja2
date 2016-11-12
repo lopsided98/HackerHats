@@ -1,9 +1,8 @@
 {% extends "base.jinja2" %}
 
 {% block head %}
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js" 
-		integrity="sha256-matqc7CRptNWuATphiL4aVwn2YFBle16YV/AI5bYc70=" 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" 
+		integrity="sha256-aUydBd3D3p3+5tVJXERlqMtoCej+p4tdD+dkJgeRWNU=" 
 		crossorigin="anonymous"></script>
 	<script src="{{ url_for('static', filename='js/results.js') }}"></script>
 	<script>
