@@ -1,3 +1,5 @@
+"use strict";
+
 Chart.defaults.global.legend.display = false;
 Chart.defaults.global.maintainAspectRatio = false;
 

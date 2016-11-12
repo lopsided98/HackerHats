@@ -1,3 +1,5 @@
+"use strict";
+
 window.onload = function() {
 	$('#response-form input').change(function() {
 		$.ajax({
