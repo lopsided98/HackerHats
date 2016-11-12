@@ -58,6 +58,10 @@ def words():
     word_count = sum([len(case[s].split()) for s in ['body', 'title', 'details'] for case in cases])
     return flask.render_template('words.jinja2', word_count=word_count)
 
+@app.route('/about')
+def about():
+    return flask.render_template('about.jinja2')
+
 @app.route('/favicon.ico')
 def favicon():
     return send_static('img/favicons/favicon.ico', mimetype='image/vnd.microsoft.icon')

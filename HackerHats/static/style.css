@@ -66,9 +66,12 @@ body {
 }
 
 .footer-container {
-	color: #FFFFFF;
 	background-color: #212121;
 	padding: 2px 20px;
+}
+.footer-container #about-link {
+	color: #FFFFFF;
+	text-decoration: none;
 }
 
 .hat-box {

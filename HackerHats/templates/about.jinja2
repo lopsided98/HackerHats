@@ -1,0 +1,35 @@
+{% extends "base.jinja2" %}
+
+{% block body %}
+
+<p>I created this site as part of an assignment for my Writing 5 (Digital Pirates) class at Dartmouth College.</p>
+
+<p>Some of the technologies, protocols and services used by this site:</p>
+<div id="about-badges">
+	<a href="http://www.w3.org/html/logo/"><img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" 
+		alt="HTML5 Powered with CSS3 / Styling, and Semantics"
+		title="HTML5 Powered with CSS3 / Styling, and Semantics">
+	</a>
+	<a href="http://www.worldipv6launch.org/"><img src="{{ url_for('static', filename='img/badges/IPv6.png') }}" height="64" 
+		alt="IPv6 Ready Badge"
+		title="Supports IPv6">
+	</a>
+	<a href="https://http2.github.io/"><img style="border-radius: 10px;" src="{{ url_for('static', filename='img/badges/HTTP2.png') }}" height="64" 
+		alt="HTTP/2 Logo"
+		title="Supports HTTP/2">
+	</a>
+	<a href="https://letsencrypt.org/"><img src="{{ url_for('static', filename='img/badges/Lets_Encrypt.svg') }}" height="64" 
+		alt="Let's Encrypt Logo"
+		title="SSL certificate from Let's Encrypt">
+	</a>
+	<a href="https://www.nginx.com/"><img src="{{ url_for('static', filename='img/badges/NGINX.png') }}" height="64" 
+		alt="NGINX Logo"
+		title="NGINX">
+	</a>
+	<a href="http://flask.pocoo.org/"><img src="{{ url_for('static', filename='img/badges/Flask.png') }}" height="64" 
+		alt="Flask Logo"
+		title="Flask: A Python Microframework">
+	</a>
+</div>
+
+{% endblock %}
