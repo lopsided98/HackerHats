@@ -6,6 +6,7 @@ import flask
 from HackerHats import app
 from HackerHats import database
 import bisect
+from werkzeug.exceptions import NotFound
 
 
 # Pages
@@ -43,7 +44,7 @@ def case(case_id):
 
         return flask.render_template('case.jinja2', **params)
     else:
-        return "Case does not exist.", 404
+        raise NotFound
 
 @app.route('/results/<int:case_id>')
 def results(case_id):
@@ -62,7 +63,7 @@ def results(case_id):
             session['response_overlay'] = True;
         return flask.render_template('results.jinja2', **params)
     else:
-        return "Case does not exist.", 404
+        raise NotFound
 
 @app.route('/words')
 def words():
@@ -90,6 +91,10 @@ def submit_response():
         return "Success!"
     else:
         return "Invalid response: %s" % res, 400
+
+@app.errorhandler(404)
+def error(e):
+    return flask.render_template('error.jinja2', message="The page you requested does not exist.")
 
 def case_id_index(case_id):
     case_ids = database.get_case_ids()
