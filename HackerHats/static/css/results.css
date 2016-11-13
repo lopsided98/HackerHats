@@ -1,0 +1,27 @@
+#results-chart-container {
+	flex: 0 0 200px;
+}
+
+#results-chart-title {
+	text-align: center;
+}
+
+#results-chart {
+	max-width: 200px;
+	height: 200px;
+	margin: 0px 20px;
+}
+
+#results-container {
+	display: flex;
+	flex-grow: 1;
+}
+
+@media ( max-width : 800px) {
+	#results-chart {
+		margin: 0px auto;
+	}
+	#results-container {
+		flex-direction: column;
+	}
+}

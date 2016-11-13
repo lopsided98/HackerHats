@@ -1,9 +1,10 @@
+{% macro overlay(text, url) %}
+	<cite>(<a href="{{ url }}">{{ text }}</a>)</cite>
+{% endmacro %}
+
 <!doctype html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
 <!-- favicon configuration -->
 <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicons/favicon.ico') }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/favicons/apple-touch-icon.png') }}">
@@ -15,11 +16,26 @@
 <meta name="msapplication-config" content="{{ url_for('static', filename='img/favicons/browserconfig.xml') }}" />
 <meta name="theme-color" content="#ffffff">
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+<script src="{{ url_for('static', filename='js/base.js') }}"></script>
 <title>Hacker Hats</title>
 {% block head %}{% endblock %}
 </head>
 <body>
+{% if has_overlay %}
+	<div class="overlay" onclick="closeOverlay();">
+		<div class="overlay-body" onclick="event.stopPropagation();">
+			<div class="overlay-content">
+				{% block overlay %}{% endblock %}
+			</div>
+			<a class="overlay-close-button button standard-button" href="javascript:closeOverlay()" >Close</a>
+		</div>
+	</div>
+{% endif %}
+
 <div class="padded-container">
 	<header class="header-container" >
 		<h1><a href="/">Hacker Hats</a></h1>
@@ -29,10 +45,10 @@
 	</main>
 	<div class="navigation-container" >
 		{% if prev_page is defined %}
-			<a class="navigation-button button" id="prev-button" href="{{prev_page}}">Prev</a>
+			<a class="navigation-button button standard-button" id="prev-button" href="{{prev_page}}">Prev</a>
 		{% endif %}
 		{% if next_page is defined %}
-			<a class="navigation-button button" id="next-button" href="{{next_page}}">Next</a>
+			<a class="navigation-button button standard-button" id="next-button" href="{{next_page}}">Next</a>
 		{% endif %}
 	</div>
 </div>

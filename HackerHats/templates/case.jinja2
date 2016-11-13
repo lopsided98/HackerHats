@@ -1,11 +1,18 @@
 {% extends "base.jinja2" %}
 
 {% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/case.css') }}">
+	
 	<script
 		src="https://code.jquery.com/jquery-3.1.1.min.js"
 		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 		crossorigin="anonymous"></script>
 	<script src="{{ url_for('static', filename='js/case.js') }}"></script>
+{% endblock %}
+
+{% block overlay %}
+	<h3>Instructions</h3>
+	<p>Read the following descriptions and decide whether they are examples of white hat, gray hat or black hat behavior.</p>
 {% endblock %}
 
 {% block body %}

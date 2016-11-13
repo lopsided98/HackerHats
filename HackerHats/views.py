@@ -30,9 +30,17 @@ def case(case_id):
         else:
             params['prev_page'] = '/definitions'
         params['case'] = dict(case)
+        
+        # Preselect existing response, if any
         default_response = database.get_user_response(case_id)
         if default_response != None:
             params['default_response'] = default_response
+
+        # Show instruction overlay if it has not been shown before
+        if not 'case_overlay' in session:
+            params['has_overlay'] = True;
+            session['case_overlay'] = True;
+
         return flask.render_template('case.jinja2', **params)
     else:
         return "Case does not exist.", 404
@@ -48,6 +56,10 @@ def results(case_id):
         params['prev_page'] = flask.url_for('case', case_id=case_id)
         params['case'] = case
         params['responses'] = [dict(response) for response in database.get_responses(case_id)]
+        # Show instruction overlay if it has not been shown before
+        if not 'response_overlay' in session:
+            params['has_overlay'] = True;
+            session['response_overlay'] = True;
         return flask.render_template('results.jinja2', **params)
     else:
         return "Case does not exist.", 404

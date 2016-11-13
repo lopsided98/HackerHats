@@ -1,6 +1,7 @@
 {% extends "base.jinja2" %}
 
 {% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" 
 		integrity="sha256-aUydBd3D3p3+5tVJXERlqMtoCej+p4tdD+dkJgeRWNU=" 
 		crossorigin="anonymous"></script>
@@ -12,12 +13,21 @@
 	</script>
 {% endblock %}
 
+{% block overlay %}
+	<h3>Explanation</h3>
+	<p>The pie chart on the left shows the distributions of the responses by other users to the example on the previous page.</p>
+	<p>This page also provides more specific details and background for the example.</p>
+{% endblock %}
+
 {% block body %}
-    <div class="results-container" id="results-container">
-    	<div class="results-chart" id="results-chart">
-    		<canvas class="results-chart-canvas" id="results-chart-canvas"></canvas>
-    	</div>
-    	<div class="results-description" id="results-description">
+    <div id="results-container">
+    	<div id="results-chart-container">
+    		<h4 id="results-chart-title">Survey Responses</h4>
+    		<div id="results-chart">
+    			<canvas id="results-chart-canvas"></canvas>
+    		</div>
+		</div>
+    	<div id="results-description">
     		<h3>{{ case['title'] }}</h3>
     		<p>{{ case['details'] }}</p>
     	</div>

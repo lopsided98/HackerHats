@@ -1,0 +1,30 @@
+#response-form {
+	max-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#response-form input[type="radio"] {
+	display: none;
+}
+
+.response-label {
+	display: block;
+	height: 50px;
+	/* Vertically align text */
+	line-height: 50px;
+	border-radius: 12px;
+	text-align: center;
+	vertical-align: middle;
+	text-align: center;
+	border-color: black;
+	margin: 10px;
+}
+
+.response-label:hover {
+	border-color: white;
+}
+
+#response-form input[type="radio"]:checked+.response-label {
+	border-color: white;
+}

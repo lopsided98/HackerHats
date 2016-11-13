@@ -34,26 +34,26 @@ body {
 .button {
 	border: 1px solid black;
 	background-color: #666666;
+	text-align: center;
+	color: black;
+	text-decoration: none;
+	-webkit-transition: color 0.1s, border-color 0.1s;
+	transition: color 0.1s, border-color 0.1s;
 }
 
-.navigation-container {
-	display: flex;
-	justify-content: space-between;
+.standard-button {
+	padding: 8px;
+	border-radius: 8px;
+}
+
+.standard-button:active {
+	color: white;
+	border-color: white;
 }
 
 .navigation-button {
-	padding: 8px;
-	border-radius: 8px;
 	width: 50px;
-	text-align: center;
 	margin-top: 20px;
-	color: black;
-	text-decoration: none;
-}
-
-.navigation-button:active {
-	color: white;
-	border-color: white;
 }
 
 .navigation-button#prev-button {
@@ -65,10 +65,16 @@ body {
 	align-self: flex-end;
 }
 
+.navigation-container {
+	display: flex;
+	justify-content: space-between;
+}
+
 .footer-container {
 	background-color: #212121;
 	padding: 2px 20px;
 }
+
 .footer-container #about-link {
 	color: #FFFFFF;
 	text-decoration: none;
@@ -90,64 +96,53 @@ body {
 	flex: 1;
 }
 
-#response-form {
-	max-width: 300px;
-	margin-left: auto;
-	margin-right: auto;
+.overlay {
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	overflow: hidden;
 }
 
-#response-form input[type="radio"] {
-	display: none;
-}
-
-.response-label {
-	display: block;
-	height: 50px;
-	/* Vertically align text */
-	line-height: 50px;
-	border-radius: 12px;
+.overlay-body {
+	margin: auto;
+	margin-top: 5%;
+	width: 50%;
+	padding: 20px;
+	background-color: #91969e;
+	border-radius: 20px;
 	text-align: center;
-	vertical-align: middle;
-	text-align: center;
-	border-color: black;
-	margin: 10px;
 }
 
-#response-form input[type="radio"]:checked+.response-label {
-	border-color: white;
+.overlay-content {
+	width: 100%;
+	padding-bottom: 15px;
+	text-align: start;
 }
 
-.results-chart {
-	max-width: 200px;
-	height: 200px;
-	display: flex;
-	flex: 0 0 200px;
-	margin: 0px 20px;
+.overlay-closed {
+	opacity: 0;
+	height: 0px;
+	-webkit-transition: opacity 0.3s, height 0s 0.3s;
+	transition: opacity 0.3s, height 0s 0.3s;
 }
 
-.results-description {
-	display: flex;
-	flex-direction: column;
+.overlay-close-button {
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
-.results-container {
-	display: flex;
-	flex-grow: 1;
-}
-
-@media (max-width: 1000px) {
+@media ( max-width : 1000px) {
 	body {
 		width: 100%;
 		margin: 0px;
 	}
-}
-
-@media (max-width: 800px) {
-	.results-chart {
-		margin: 0px auto;
-	}
 	
-	.results-container {
-		flex-direction: column;
+	.overlay-body {
+		width: 80%;
 	}
 }
