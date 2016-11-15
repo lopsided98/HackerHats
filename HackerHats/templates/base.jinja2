@@ -47,10 +47,10 @@
 	</main>
 	<div class="navigation-container" >
 		{% if prev_page is defined %}
-			<a class="navigation-button button standard-button" id="prev-button" href="{{prev_page}}">Prev</a>
+			<a class="navigation-button button standard-button" id="prev-button" rel="prev" href="{{prev_page}}">Prev</a>
 		{% endif %}
 		{% if next_page is defined %}
-			<a class="navigation-button button standard-button" id="next-button" href="{{next_page}}">Next</a>
+			<a class="navigation-button button standard-button" id="next-button" rel="next" href="{{next_page}}">Next</a>
 		{% endif %}
 	</div>
 </div>
