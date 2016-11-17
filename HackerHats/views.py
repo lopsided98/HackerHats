@@ -94,7 +94,7 @@ def submit_response():
 
 @app.errorhandler(404)
 def error(e):
-    return flask.render_template('error.jinja2', message="The page you requested does not exist.")
+    return flask.render_template('error.jinja2', message="The page you requested does not exist."), 404
 
 def case_id_index(case_id):
     case_ids = database.get_case_ids()
