@@ -5,3 +5,4 @@ __pycache__
 .project
 .pydevproject
 HackerHats/db/data.db
+HackerHats.cfg
