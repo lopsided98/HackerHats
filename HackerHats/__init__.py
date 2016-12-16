@@ -4,9 +4,7 @@ import os
 app = Flask(__name__)
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'db/data.db'),
-    SECRET_KEY=':0FXmO@Dt`w*ICrzp$ZgAdgcOZFX`@|UxG3QKF',
-    USERNAME='admin',
-    PASSWORD='default',
+    SECRET_KEY='devel-key',
     SESSION_COOKIE_NAME = "HackerHatsSession",
     TEMPLATES_AUTO_RELOAD = True
 ))
