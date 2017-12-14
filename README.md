@@ -8,7 +8,7 @@ define a term of our choosing, using any medium other than an essay.
 
 The backend is written in Python using [Flask](http://flask.pocoo.org/).
 
-The live site is available at https://hacker-hats.nsupdate.info. I might not
+The live site is available at https://hackerhats.benwolsieffer.com. I might not
 host the site indefinitely, so if that link doesn't work, [an archive is
 available](https://web.archive.org/web/*/http://hacker-hats.nsupdate.info/).
 
