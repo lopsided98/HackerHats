@@ -10,7 +10,7 @@ The backend is written in Python using [Flask](http://flask.pocoo.org/).
 
 The live site is available at https://hackerhats.benwolsieffer.com. I might not
 host the site indefinitely, so if that link doesn't work, [an archive is
-available](https://web.archive.org/web/*/http://hacker-hats.nsupdate.info/).
+available](https://web.archive.org/web/*/https://hackerhats.benwolsieffer.com/).
 
 If someone happens to look at this and notices a bug, especially security
 related, please let me know.
